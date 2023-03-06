@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane fx:id="addScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AddController">
+  <columnConstraints>
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="399.6" minHeight="10.0" prefHeight="354.40001220703124" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="40.0" minHeight="0.0" prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Button mnemonicParsing="false" onAction="#addTask" prefWidth="65.0" text="Add Task" GridPane.rowIndex="1" />
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <Label alignment="BOTTOM_LEFT" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="65.0" text="Name" />
+            <TextField fx:id="name" maxHeight="25.0" onAction="#addTask" prefHeight="25.0" />
+            <Label alignment="BOTTOM_LEFT" maxHeight="25.0" prefHeight="25.0" prefWidth="251.0" text="Deadline: Day" />
+            <DatePicker fx:id="deadlineDay" maxHeight="25.0" prefHeight="26.0" prefWidth="251.0" />
+            <HBox maxHeight="25.0" prefHeight="25.0" prefWidth="210.0">
+               <children>
+                  <Label alignment="BOTTOM_LEFT" maxHeight="25.0" maxWidth="105.0" prefHeight="25.0" prefWidth="105.0" text="Deadline: Hour" />
+                  <Label alignment="BOTTOM_LEFT" maxHeight="25.0" maxWidth="105.0" prefHeight="25.0" prefWidth="105.0" text="Deadline: Minutes" />
+               </children>
+            </HBox>
+            <HBox maxHeight="25.0" maxWidth="210.0" prefHeight="25.0" prefWidth="210.0">
+               <children>
+                  <ChoiceBox fx:id="hourChoice" maxHeight="25.0" maxWidth="105.0" prefHeight="25.0" prefWidth="105.0" />
+                  <ChoiceBox fx:id="minutesChoice" maxHeight="25.0" maxWidth="105.0" prefHeight="25.0" prefWidth="105.0" />
+               </children>
+            </HBox>
+            <Label alignment="BOTTOM_LEFT" maxHeight="25.0" prefHeight="30.0" text="Priority" />
+            <ChoiceBox fx:id="choiceBox" maxHeight="25.0" prefHeight="25.0" prefWidth="250.0" />
+            <Label alignment="BOTTOM_LEFT" maxHeight="25.0" prefHeight="25.0" text="Description" />
+            <TextField fx:id="description" alignment="TOP_LEFT" onAction="#addTask" prefHeight="130.0" prefWidth="210.0" />
+         </children>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+         <children>
+            <Label alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="65.0" text="This Task Depends On" />
+            <TableView fx:id="tableViewThisDependsOn" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="check1" prefWidth="40.0" text="Check" />
+                <TableColumn fx:id="task1" prefWidth="204.80004119873047" text="Task" />
+              </columns>
+            </TableView>
+            <Label alignment="BOTTOM_LEFT" maxWidth="1.7976931348623157E308" minHeight="25.0" prefHeight="25.0" prefWidth="65.0" text="Tasks That Depend On This One" />
+            <TableView fx:id="tableViewThatDependOnThis" prefHeight="200.0" prefWidth="200.0">
+               <columns>
+                  <TableColumn fx:id="check2" prefWidth="40.0" text="Check" />
+                  <TableColumn fx:id="task2" prefWidth="204.80004119873047" text="Task" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+      <Button mnemonicParsing="false" onAction="#back" prefWidth="65.0" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   </children>
+</GridPane>
